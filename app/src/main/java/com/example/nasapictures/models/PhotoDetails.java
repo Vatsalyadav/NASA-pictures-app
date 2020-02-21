@@ -11,22 +11,6 @@ public class PhotoDetails {
     private String title;
     private String imageUrl;
 
-    public PhotoDetails(String copyright, String date, String explanation,
-                        String imageUrlHd, String media_type, String service_version,
-                        String imageUrl, String title) {
-        this.title = title;
-        this.imageUrl = imageUrl;
-        this.copyright = copyright;
-        this.date = date;
-        this.explanation = imageUrlHd;
-        this.media_type = media_type;
-        this.service_version = service_version;
-        this.imageUrlHd = imageUrlHd;
-    }
-
-    public PhotoDetails() {
-    }
-
     public String getCopyright() {
         return copyright;
     }
