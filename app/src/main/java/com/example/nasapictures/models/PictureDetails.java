@@ -1,6 +1,8 @@
 package com.example.nasapictures.models;
 
-public class PictureDetails {
+import java.io.Serializable;
+
+public class PictureDetails implements Serializable {
 
     private String copyright;
     private String date;
