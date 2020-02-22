@@ -2,7 +2,7 @@ package com.example.nasapictures.repositories;
 
 import android.content.Context;
 
-import com.example.nasapictures.models.PhotoDetails;
+import com.example.nasapictures.models.PictureDetails;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -20,51 +20,51 @@ import androidx.lifecycle.MutableLiveData;
 /**
  * Singleton pattern
  */
-public class PhotosRepository {
+public class PicturesRepository {
 
-    private static PhotosRepository instance;
-    private ArrayList<PhotoDetails> photosDataSet = new ArrayList<>();
+    private static PicturesRepository instance;
+    private ArrayList<PictureDetails> picturesDataSet = new ArrayList<>();
 
-    public static PhotosRepository getInstance() {
+    public static PicturesRepository getInstance() {
         if (instance == null) {
-            instance = new PhotosRepository();
+            instance = new PicturesRepository();
         }
         return instance;
     }
 
 
-    public MutableLiveData<List<PhotoDetails>> getPhotosData(Context context) {
-        setPhotosData(context);
-        MutableLiveData<List<PhotoDetails>> data = new MutableLiveData<>();
-        data.setValue(photosDataSet);
+    public MutableLiveData<List<PictureDetails>> getPicturesData(Context context) {
+        setPicturesData(context);
+        MutableLiveData<List<PictureDetails>> data = new MutableLiveData<>();
+        data.setValue(picturesDataSet);
         return data;
     }
 
     private String loadJSONFromAsset(Context context) {
-        String photosDataJson = null;
+        String picturesDataJson = null;
         try {
             InputStream inputStream = context.getAssets().open("data.json");
             int size = inputStream.available();
             byte[] buffer = new byte[size];
             inputStream.read(buffer);
             inputStream.close();
-            photosDataJson = new String(buffer, "UTF-8");
+            picturesDataJson = new String(buffer, "UTF-8");
         } catch (IOException ex) {
             ex.printStackTrace();
             return null;
         }
-        return photosDataJson;
+        return picturesDataJson;
     }
 
-    private void setPhotosData(Context context) {
-        photosDataSet.clear();
+    private void setPicturesData(Context context) {
+        picturesDataSet.clear();
         String dataJson = loadJSONFromAsset(context);
         try {
             JSONArray jsonArray = new JSONArray(dataJson);
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                photosDataSet.add(
-                        new Gson().fromJson(jsonObject.toString(), PhotoDetails.class)
+                picturesDataSet.add(
+                        new Gson().fromJson(jsonObject.toString(), PictureDetails.class)
                 );
             }
         } catch (JSONException e) {

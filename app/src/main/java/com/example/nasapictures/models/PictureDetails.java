@@ -1,6 +1,6 @@
 package com.example.nasapictures.models;
 
-public class PhotoDetails {
+public class PictureDetails {
 
     private String copyright;
     private String date;
