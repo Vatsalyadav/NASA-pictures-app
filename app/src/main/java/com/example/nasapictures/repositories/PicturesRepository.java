@@ -11,6 +11,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +41,7 @@ public class PicturesRepository {
         return data;
     }
 
+    // Fetch JSON data from Android Asset data.json
     private String loadJSONFromAsset(Context context) {
         String picturesDataJson = null;
         try {
@@ -56,6 +58,7 @@ public class PicturesRepository {
         return picturesDataJson;
     }
 
+    // Set PicturesDetails Models List with data fetched from data.json
     private void setPicturesData(Context context) {
         picturesDataSet.clear();
         String dataJson = loadJSONFromAsset(context);
@@ -64,10 +67,10 @@ public class PicturesRepository {
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 picturesDataSet.add(
-                        new Gson().fromJson(jsonObject.toString(), PictureDetails.class)
+                        new Gson().fromJson(new String(jsonObject.toString().getBytes("ISO-8859-1"), "UTF-8"), PictureDetails.class)
                 );
             }
-        } catch (JSONException e) {
+        } catch (JSONException | UnsupportedEncodingException e) {
             e.printStackTrace();
         }
     }

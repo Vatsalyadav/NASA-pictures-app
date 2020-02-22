@@ -1,6 +1,8 @@
 package com.example.nasapictures.view;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.example.nasapictures.R;
 import com.example.nasapictures.adapters.PicturesGridRecyclerAdapter;
@@ -39,21 +41,35 @@ public class PicturesGridActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
+    // Initialize PicturesGridModelView to get UI data from repository
     private void initPicturesGridModelView() {
-        mPicturesGridActivityViewModel = new ViewModelProvider(this).get(PicturesGridActivityViewModel.class);
-        mPicturesGridActivityViewModel.init(this);
-        mPicturesGridActivityViewModel.getPictureDetails().observe(this, new Observer<List<PictureDetails>>() {
-            @Override
-            public void onChanged(@Nullable List<PictureDetails> nicePlaces) {
-                mPicturesGridRecyclerAdapter.notifyDataSetChanged();
-            }
-        });
+        try {
+            mPicturesGridActivityViewModel = new ViewModelProvider(this).get(PicturesGridActivityViewModel.class);
+            mPicturesGridActivityViewModel.init(this);
+            mPicturesGridActivityViewModel.getPictureDetails().observe(this, new Observer<List<PictureDetails>>() {
+                @Override
+                public void onChanged(@Nullable List<PictureDetails> nicePlaces) {
+                    mPicturesGridRecyclerAdapter.notifyDataSetChanged();
+                }
+            });
+        } catch (Exception e) {
+            Log.e(TAG, "Error on initiating PicturesGridActivityViewModel to get UI Data");
+            e.printStackTrace();
+            Toast.makeText(this, "Unable to get UI Data, please try again later.", Toast.LENGTH_SHORT).show();
+        }
     }
 
+    // Initialize RecyclerView to display NASA Pictures grid
     private void initRecyclerView() {
-        mRecyclerView = findViewById(R.id.pictures_grid_recycler_view);
-        mPicturesGridRecyclerAdapter = new PicturesGridRecyclerAdapter(this, mPicturesGridActivityViewModel.getPictureDetails().getValue());
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        mRecyclerView.setAdapter(mPicturesGridRecyclerAdapter);
+        try {
+            mRecyclerView = findViewById(R.id.pictures_grid_recycler_view);
+            mPicturesGridRecyclerAdapter = new PicturesGridRecyclerAdapter(this, mPicturesGridActivityViewModel.getPictureDetails().getValue());
+            mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+            mRecyclerView.setAdapter(mPicturesGridRecyclerAdapter);
+        } catch (Exception e) {
+            Log.e(TAG, "Error on initiating recyclerView to set NASA Pictures grid");
+            e.printStackTrace();
+            Toast.makeText(this, "Unable to set NASA Pictures grid UI Data, please try again later.", Toast.LENGTH_SHORT).show();
+        }
     }
 }
