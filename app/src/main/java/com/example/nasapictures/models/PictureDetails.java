@@ -5,11 +5,11 @@ public class PictureDetails {
     private String copyright;
     private String date;
     private String explanation;
-    private String imageUrlHd;
+    private String hdurl;
     private String media_type;
     private String service_version;
     private String title;
-    private String imageUrl;
+    private String url;
 
     public String getCopyright() {
         return copyright;
@@ -33,14 +33,6 @@ public class PictureDetails {
 
     public void setExplanation(String explanation) {
         this.explanation = explanation;
-    }
-
-    public String getImageUrlHd() {
-        return imageUrlHd;
-    }
-
-    public void setImageUrlHd(String imageUrlHd) {
-        this.imageUrlHd = imageUrlHd;
     }
 
     public String getMedia_type() {
@@ -67,12 +59,19 @@ public class PictureDetails {
         this.title = title;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getHdurl() {
+        return hdurl;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setHdurl(String hdurl) {
+        this.hdurl = hdurl;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }
