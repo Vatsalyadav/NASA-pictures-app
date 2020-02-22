@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:foreground="?android:selectableItemBackground"
         app:cardElevation="4dp"
+        app:cardBackgroundColor="@android:color/black"
         app:cardUseCompatPadding="true">
 
         <LinearLayout
@@ -30,10 +31,9 @@
                 android:id="@+id/grid_image_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="end"
+                android:gravity="start"
                 android:padding="2dp"
                 android:paddingStart="8dp"
-                android:textSize="18sp"
                 tools:text="Dummy Name" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
