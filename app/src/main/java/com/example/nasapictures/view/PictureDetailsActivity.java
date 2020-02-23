@@ -56,7 +56,7 @@ public class PictureDetailsActivity extends AppCompatActivity {
     }
 
     private void displayHomeAsUpEnabled() {
-        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarPictureDetails);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_picture_details);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -72,7 +72,7 @@ public class PictureDetailsActivity extends AppCompatActivity {
     // Set up View Pager for Swiping through screen for NASA pictures
     public void setupPicturesViewPager() {
         try {
-            picturesViewPager = (ViewPager) findViewById(R.id.picturesViewPager);
+            picturesViewPager = (ViewPager) findViewById(R.id.view_pager_picture_details);
             PagerAdapter adapter = new PictureDetailsViewPagerAdapter(this, this, mPictureDetailsList);
             picturesViewPager.setAdapter(adapter);
             picturesViewPager.setCurrentItem(mSelectedPicturePosition);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/parent_layout"
+    android:id="@+id/parent_layout_picture_details_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:focusable="true"
@@ -19,7 +19,7 @@
             android:orientation="vertical">
 
             <com.github.chrisbanes.photoview.PhotoView
-                android:id="@+id/nasaPicture"
+                android:id="@+id/nasa_picture"
                 android:layout_width="match_parent"
                 android:layout_height="600dp" />
 

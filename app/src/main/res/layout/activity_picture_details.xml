@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_content"
+    android:id="@+id/parent_layout_picture_details"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
@@ -9,14 +9,14 @@
     android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbarPictureDetails"
+        android:id="@+id/appbar_picture_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:elevation="1dp">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarPictureDetails"
+            android:id="@+id/toolbar_picture_details"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
@@ -28,7 +28,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.example.nasapictures.view.HackyViewPager
-        android:id="@+id/picturesViewPager"
+        android:id="@+id/view_pager_picture_details"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

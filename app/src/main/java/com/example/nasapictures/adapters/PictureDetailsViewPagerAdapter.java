@@ -60,7 +60,7 @@ public class PictureDetailsViewPagerAdapter extends PagerAdapter {
         circularProgressDrawable.start();
 
         // Use PhotoView image view for in built photo zoom functions
-        PhotoView nasaPictureView = (PhotoView) viewItem.findViewById(R.id.nasaPicture);
+        PhotoView nasaPictureView = (PhotoView) viewItem.findViewById(R.id.nasa_picture);
 
         // Set the image using Glide library
         Glide.with(mContext)
@@ -70,7 +70,7 @@ public class PictureDetailsViewPagerAdapter extends PagerAdapter {
                 .apply(new RequestOptions()
                         .fitCenter())
                 .apply(new RequestOptions()
-                        .error(R.drawable.ic_sad))
+                        .error(R.drawable.ic_broken_image))
                 .into(nasaPictureView);
 
         // Set picture details

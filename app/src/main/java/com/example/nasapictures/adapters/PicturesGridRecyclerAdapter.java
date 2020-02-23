@@ -63,7 +63,7 @@ public class PicturesGridRecyclerAdapter extends RecyclerView.Adapter<PicturesGr
                     .apply(new RequestOptions()
                             .fitCenter())
                     .apply(new RequestOptions()
-                            .error(R.drawable.ic_sad))
+                            .error(R.drawable.ic_broken_image))
                     .into(viewHolder.gridImage);
         } catch (Exception e) {
             Log.e("PicturesGridRecycler", "Error while setting NASA Pictures grid data");
@@ -101,9 +101,9 @@ public class PicturesGridRecyclerAdapter extends RecyclerView.Adapter<PicturesGr
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            gridImage = itemView.findViewById(R.id.grid_image);
-            gridImageName = itemView.findViewById(R.id.grid_image_name);
-            gridParentLayout = itemView.findViewById(R.id.parent_layout);
+            gridImage = itemView.findViewById(R.id.grid_picture);
+            gridImageName = itemView.findViewById(R.id.grid_picture_title);
+            gridParentLayout = itemView.findViewById(R.id.parent_layout_pictures_grid_item);
         }
     }
 }

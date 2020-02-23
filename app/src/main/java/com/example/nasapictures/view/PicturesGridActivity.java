@@ -37,7 +37,7 @@ public class PicturesGridActivity extends AppCompatActivity {
     }
 
     private void displayToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.home_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_pictures_grid);
         setSupportActionBar(toolbar);
     }
 
@@ -62,7 +62,7 @@ public class PicturesGridActivity extends AppCompatActivity {
     // Initialize RecyclerView to display NASA Pictures grid
     private void initRecyclerView() {
         try {
-            mRecyclerView = findViewById(R.id.pictures_grid_recycler_view);
+            mRecyclerView = findViewById(R.id.recycler_view_pictures_grid);
             mPicturesGridRecyclerAdapter = new PicturesGridRecyclerAdapter(this, mPicturesGridActivityViewModel.getPictureDetails().getValue());
             mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
             mRecyclerView.setAdapter(mPicturesGridRecyclerAdapter);
