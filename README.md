@@ -35,7 +35,7 @@ MVVM stands for Model, View, ViewModel. MVVM facilitates a separation of develop
 #### Model
 Model holds the data of the application. Model represents domain specific data and business logic in MVC architecture. It maintains the data of the application. Model objects retrieve and store model state in the persistance store like a database. Model class holds data in public properties. It cannot directly talk to the View.
 #### View
-Viewrepresents the UI of the application devoid of any Application Logic. It observes the ViewModel.
+View represents the UI of the application devoid of any Application Logic. It observes the ViewModel.
 #### ViewModel
 ViewModel acts as a link between the Model and the View. It’s responsible for transforming the data from the Model. It provides data streams to the View. It also uses hooks or callbacks to update the View. It’ll ask for the data from the Model.
 The following flow illustrates the core MVVM Pattern.
@@ -57,7 +57,7 @@ Android activity layout `activity_pictures_grid.xml` has custom toolbar and Recy
 
 <b>View</b> `PictureDetailsActivity` includes picturesViewPager for horizontal scrolling view pager to show NASA pictures. This activity has UI for NASA picture zoomable image, date, copyright, title, explanation and tab selector to move across images.
 
-### Apdaters
+### Adapters
 RecyclerViewAdapter `PicturesGridRecyclerAdapter` provides a binding for NASA Picture image and name, set to views that are displayed within the recyclerView for the PicturesGridActivity, i.e, Pictures grid screen. Images will be load using Glide will CircularProgressDrawable as placeholder and sad icon for image loading error. Glide is used for a fast image loading and caching.
 RecyclerView is an efficient version of ListView which acts as a container for rendering data set of views that can be recycled and scrolled efficiently.
 
