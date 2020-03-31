@@ -43,7 +43,7 @@ public class PicturesGridActivityTest {
     public void fetchPicturesDataToBeTested() {
         mPicturesGridActivity = mActivityTestRule.getActivity();
         mPicturesGridActivityViewModel = new ViewModelProvider(mPicturesGridActivity).get(PicturesGridActivityViewModel.class);
-        mPicturesGridActivityViewModel.init(mPicturesGridActivity);
+        mPicturesGridActivityViewModel.init();
         LiveData<List<PictureDetails>> pictureDetailsList = mPicturesGridActivityViewModel.getPictureDetails();
         pictureDetails = pictureDetailsList.getValue().get(listItemInTest);
 

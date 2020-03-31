@@ -45,7 +45,7 @@ public class PictureDetailsActivityTest {
     public void fetchPicturesDataToBeTested() {
         mPicturesGridActivity = mActivityTestRule.getActivity();
         mPicturesGridActivityViewModel = new ViewModelProvider(mPicturesGridActivity).get(PicturesGridActivityViewModel.class);
-        mPicturesGridActivityViewModel.init(mPicturesGridActivity);
+        mPicturesGridActivityViewModel.init();
         LiveData<List<PictureDetails>> pictureDetailsList = mPicturesGridActivityViewModel.getPictureDetails();
         pictureDetails = pictureDetailsList.getValue().get(listItemInTest);
         onView(ViewMatchers.withId(R.id.recycler_view_pictures_grid)).perform(actionOnItemAtPosition(listItemInTest, click()));
