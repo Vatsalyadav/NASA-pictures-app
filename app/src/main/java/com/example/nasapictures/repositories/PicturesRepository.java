@@ -1,7 +1,5 @@
 package com.example.nasapictures.repositories;
 
-import android.content.Context;
-
 import com.example.nasapictures.models.PictureDetails;
 import com.google.gson.Gson;
 
@@ -34,18 +32,18 @@ public class PicturesRepository {
     }
 
 
-    public MutableLiveData<List<PictureDetails>> getPicturesData(Context context) {
-        setPicturesData(context);
+    public MutableLiveData<List<PictureDetails>> getPicturesData() {
+        setPicturesData();
         MutableLiveData<List<PictureDetails>> data = new MutableLiveData<>();
         data.setValue(picturesDataSet);
         return data;
     }
 
     // Fetch JSON data from Android Asset data.json
-    private String loadJSONFromAsset(Context context) {
+    private String loadJSONFromAsset() {
         String picturesDataJson = null;
         try {
-            InputStream inputStream = context.getAssets().open("data.json");
+            InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("assets/data.json");
             int size = inputStream.available();
             byte[] buffer = new byte[size];
             inputStream.read(buffer);
@@ -59,9 +57,9 @@ public class PicturesRepository {
     }
 
     // Set PicturesDetails Models List with data fetched from data.json
-    private void setPicturesData(Context context) {
+    private void setPicturesData() {
         picturesDataSet.clear();
-        String dataJson = loadJSONFromAsset(context);
+        String dataJson = loadJSONFromAsset();
         try {
             JSONArray jsonArray = new JSONArray(dataJson);
             for (int i = 0; i < jsonArray.length(); i++) {

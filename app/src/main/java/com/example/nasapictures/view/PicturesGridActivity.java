@@ -45,7 +45,7 @@ public class PicturesGridActivity extends AppCompatActivity {
     private void initPicturesGridModelView() {
         try {
             mPicturesGridActivityViewModel = new ViewModelProvider(this).get(PicturesGridActivityViewModel.class);
-            mPicturesGridActivityViewModel.init(this);
+            mPicturesGridActivityViewModel.init();
             mPicturesGridActivityViewModel.getPictureDetails().observe(this, new Observer<List<PictureDetails>>() {
                 @Override
                 public void onChanged(@Nullable List<PictureDetails> nicePlaces) {
